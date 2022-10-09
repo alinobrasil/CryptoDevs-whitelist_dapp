@@ -1,0 +1,6 @@
+*/.env
+*/node_modules
+
+
+hardhat/cache
+hardhat/artifacts/build-info
