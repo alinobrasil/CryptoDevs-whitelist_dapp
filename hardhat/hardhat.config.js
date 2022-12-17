@@ -4,7 +4,7 @@ require("@nomiclabs/hardhat-etherscan");
 
 const ALCHEMY_URL = process.env.ALCHEMY_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY
-
+const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -13,9 +13,15 @@ module.exports = {
         goerli: {
             url: ALCHEMY_URL,
             accounts: [PRIVATE_KEY],
+        },
+        mumbai: {
+            url: process.env.POLYGON_MUMBAI_URL,
+            accounts: [PRIVATE_KEY]
         }
     },
     etherscan: {
-        apiKey: process.env.ETHERSCAN_KEY
+        apiKey: {
+            polygonMumbai: POLYGONSCAN_KEY,
+        }
     }
-};
+}
